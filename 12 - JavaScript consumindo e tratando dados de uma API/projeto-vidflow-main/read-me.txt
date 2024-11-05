@@ -1,0 +1,11 @@
+antes de executar o index.html, executar o comando "json-server --watch backend/videos.json" no terminal
+
+Vale ressatlar que...
+
+no powershell, tem que a policy estar com RemoteSigned
+
+para verifiar é o comando: "Get-ExecutionPolicy"
+
+para alterar: "Set-ExecutionPolicy RemoteSigned"
+
+para volar ao normal: "Set-ExecutionPolicy Restricted"
