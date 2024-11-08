@@ -1,0 +1,13 @@
+Atenção!
+1 - Para rodar o projeto é necessário o json-server, é aconselhado não instalar a versão atual para que não ocorra erros.
+    O projeto foi desenvolvido na versão 0.17.0 - Executar comando: npm install -g json-server@0.17.0
+---------------------------------------------------------------------------------------------------------------------------
+2 - Projeto devidamente configurado na máquina, sempre que for executar, deverá rodar no terminal o comando: 
+    json-server --watch db.json 
+---------------------------------------------------------------------------------------------------------------------------
+Passos necessários para rodar o projeto:
+
+1 - Instalar o NODE.js
+2 - instalar o json-server: npm install -g json-server@0.17.0
+3 - Executar o Windows PowerShell como administrador e exeutar o comando Set-ExecutionPolicy RemoteSigned
+4 - rodar o comando: json-server --watch db.json
