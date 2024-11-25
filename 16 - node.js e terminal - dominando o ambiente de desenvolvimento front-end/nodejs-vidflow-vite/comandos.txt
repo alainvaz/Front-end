@@ -1,0 +1,107 @@
+Iniciando...
+1 - verificar versão do node no terminal (PowerShell): node -v ou node --version
+2 - verificar diretório que estou: pwd
+3 - criar diretorio mkdir exeplo-node
+4 - entrar no diretorio: cd exemplo-node
+5 - voltar para diretorio anterior: cd ..
+6 - abrir a pasta atual no vs code: code .
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Após projeto criado no VSCode
+1 - Abrir terminal ctrl + '
+2 - executar programa criado: node + nome programa - ex.: node script.js
+3 - instalação no json server (para esse estudo estamos usando a versão 0.17.4): npm install -g json-server@0.17.4
+4 - executar API Local: json-server --watch backend/videos.json
+5 - eslint.org >> encontrar e corrigir problemas no código javascript - executar comando npm init @eslint/config@latest no terminal (comando está no site) - crie um novo terminal! >> mas antes devemos executar npm init, depois teclar enter para criar o pacote e ficar teclando enter. No cuso estamos usando npm init @eslint/config@0.4.6
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Após eslint instalado
+
+1 -  no terminal informar: npx eslint nomeArquivo:  ex.: npx eslint script.js > npx eslint . - verifica em todos os objteos javascript
+2 - extensão eslint vscode: ESlint - sem precisar validar no terminal, mas extensão é por projeto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+instalando prettier:
+O prettier deixará formatação básica no programa e é possível deixar autoformatação ao salvar
+
+1 - site: prettier.io
+2 - instalação: npm install --save-dev --save-exact prettier
+3 - verificar se foi instalado com sucesso: npx prettier -v
+4 - o prettier possui extensão, e é recomendado instalar o mesmo
+5 - colocar no settings os comandos: "editor.defaultFormatter": "esbenp.prettier-vscode",  "editor.formatOnSave": true
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+É uma boa prática instalar o Global server de forma local, instalando de forma Global, todos os projetos enxergarão essa instalação, dessa forma poderá ocorrer problemas de compatibilidade. Para mudar para local, basta utilizar o comando: npm install json-server -D (no curso vamos utilizar npm install json-server@0.16.0 -D)
+O -D é utilizado apenas para ambiente de desenvolvimento, não será para ambiente de Produção.
+
+para ver a versão local do json server é: npx json-server -v
+a versao global é =: json-server -v
+
+remover o global: npm uninstall -g json-server
+
+>>>>
+
+Agora para executar o json-server local, devemos executar o comando: npx json-server --watch backend/videos.json
+
+Documentação: npmjs.com
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+no package.json, podemos colocar o comando json-server para evitar executar o comando toda hora no terminal o comando completo, colocar na sequencia do "scripts"
+ex.: "api-local:": "json-server --watch backend/videos.json"
+
+depois basta executar: npm run api-local
+
+O mesmo poderá ser feito para o eslint ou otras ferramentas:
+    "api-local:": "json-server --watch backend/videos.json",
+    "checar-codigo": "eslint ."
+
+depois basta executar: npm run checar-codigo
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Usando o Axios
+
+no site npmjs.com procurar por Axios
+
+https://www.npmjs.com/package/axios
+
+Pegar o CND:
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+
+Colocar no Head do index.html
+
+aí podemos alterar busca da API:
+
+    //const busca = await fetch("http://localhost:3000/videos");
+    const busca = await axios.get("http://localhost:3000/videos");
+    //const videos = await busca.json();
+    const videos = await busca.data;
+
+Para o eslint reconhecer o axios, precisamos instalar utilizar o axios pelo npm:
+
+1 - retirar o axios do index.html
+2 - no terminal, usar o comando: npm install axios (no treinamento estamos usando a versão npm install axios@1.6.0 -E) o -E faz com que no arquivo packege.json fique sem o ^
+3 - para utilizar a dependencia do axios, vamos precisar do vite - site vitejs.dev - usar comando npm create vite@latest, mas fazer isso no powershell (no curso fizemos na versão npm create vite@4.4.1
+
+usamos o framework vanilla e variant javascript.
+
+depois de criado, abrimos o projeto criado e rodamos no terminal no VSCODE os comandos npm install e npm run dev;
+Depois podemos migrar o projeto antigo para o novo e rodar comando npm install
+No arquivo script.js precisamos do comando: import axios from "axios";
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+arquivo json utilizado no final do curos:
+https://gist.githubusercontent.com/antonio-evaldo/e8a63621b51c883931eb3fa3a3eca990/raw/12f5c46ee6dd00d03c051adadaf341e06452cea0/videos.txt
+
+Para implantar:
+
+1 - Em um novo terminal, executar o comando npm run build
+2 - depois executar o comando npm run preview - depois podemos acessar a página com o link fornecido no terminal
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Trocar URL manualmente não é legal!!!
